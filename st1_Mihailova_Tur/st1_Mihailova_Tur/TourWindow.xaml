@@ -1,0 +1,59 @@
+﻿<Window x:Class="st1_Mihailova_Tur.TourWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:st1_Mihailova_Tur"
+        mc:Ignorable="d"
+        Title="TourWindow" MinHeight="700" MinWidth="1000" Icon="Image/logo.ico">
+    <Viewbox>
+        <Grid Height="700" Width="1000">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110*"/>
+            <ColumnDefinition Width="110*"/>
+            <ColumnDefinition Width="110*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="282*"/>
+        </Grid.RowDefinitions>
+            <TextBlock Style="{StaticResource HeaderOrganization}"/>
+            <TextBlock Text="Туры" Grid.Column="1" Style="{StaticResource HeaderWindow}"/>
+            <Image Source="Image/logo.png" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="AllPrice" FontSize="15" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0"/>
+     
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock Style="{StaticResource StyleTextBlock}" Text="Введите текст для поиска:" FontSize="20" />
+                <TextBox x:Name="Search" Width="200" Margin="20,0,0,0" FontSize="20" TextChanged="Search_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                <TextBlock Style="{StaticResource StyleTextBlock}" Text="Выберите тип:" FontSize="20" Margin="0,0,20,0"/>
+                <ComboBox x:Name="AllType"  Width="200" SelectionChanged="AllType_SelectionChanged" DisplayMemberPath="Name"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                <TextBlock Style="{StaticResource StyleTextBlock}" Text="Сортировка:" FontSize="20" Margin="0,0,20,0"/>
+                <ComboBox x:Name="Sort" Width="200" SelectionChanged="Sort_SelectionChanged"/>
+            </StackPanel>
+            <CheckBox x:Name="CheckActual" Checked="CheckActual_Click" Unchecked="CheckActual_Click" Content="Только актуальные туры"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" FontSize="20" />
+        </StackPanel>
+        <ListBox Grid.Row="2" Grid.ColumnSpan="3" x:Name="ListTour" Style="{StaticResource ListTour}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,20,0,0">
+                        <TextBlock x:Name="Header" TextAlignment="Center" Text="{Binding Name}" FontSize="20" TextWrapping="Wrap" HorizontalAlignment="Center" />
+                        <Image x:Name="Image" Source="{Binding ImagePreview}" Margin="0,10,0,0" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="PriceName" Text="{Binding Price, StringFormat={}{0:N2} РУБ}" FontSize="15" Margin="0,10,0,0" HorizontalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center" >
+                            <TextBlock x:Name="Actual" Text="{Binding ActualText}" Foreground="{Binding ActualColor}"/>
+                            <TextBlock x:Name="CountTiket" Margin="50,0,0,0" Text ="{Binding TicketCount, StringFormat={}Осталось билетов: {0}}" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+       
+    </Grid>
+    </Viewbox>
+</Window>
