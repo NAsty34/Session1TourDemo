@@ -25,3 +25,5 @@ C:\Users\admin\Desktop\ДЭ задание 2\Сессия 2\st1_Mihailova_Tur\st
 C:\Users\admin\Desktop\ДЭ задание 2\Сессия 2\st1_Mihailova_Tur\st1_Mihailova_Tur\obj\Debug\HotelWindow.baml
 C:\Users\admin\Desktop\ДЭ задание 2\Сессия 2\st1_Mihailova_Tur\st1_Mihailova_Tur\obj\Debug\UpdateHotel.g.cs
 C:\Users\admin\Desktop\ДЭ задание 2\Сессия 2\st1_Mihailova_Tur\st1_Mihailova_Tur\obj\Debug\UpdateHotel.baml
+C:\Users\admin\Desktop\ДЭ задание 2\Сессия 2\st1_Mihailova_Tur\st1_Mihailova_Tur\obj\Debug\HelloWindow.g.cs
+C:\Users\admin\Desktop\ДЭ задание 2\Сессия 2\st1_Mihailova_Tur\st1_Mihailova_Tur\obj\Debug\HelloWindow.baml

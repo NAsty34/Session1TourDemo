@@ -23,6 +23,7 @@ namespace st1_Mihailova_Tur
         List<Country> Countries = st1_Mihailova_TurEntities.getContext().Country.ToList();
         private static readonly Regex _regex = new Regex("[^0-5]");
         Hotel selectedHotel;
+        private IQueryable<Tour> getTour = st1_Mihailova_TurEntities.getContext().Tour;
         public UpdateHotel(string nameEvent, Hotel hotel)
         {
             InitializeComponent();
@@ -60,21 +61,37 @@ namespace st1_Mihailova_Tur
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             if (NameHotel.Text == "" || CountStars.Text == "" || DescriptionHotel.Text == "" || ListCountry.SelectedIndex == 0)
             {
                 MessageBox.Show("Все поля должныть быть заполнены", "Error save hotel");
             }
             else
             {
+                
                 if (HeaderWindow.Text == "Добавление отеля")
                 {
+                    List<Tour> HotelTours = new List<Tour>();
+                    if (getTour.Where(a => a.Country == (ListCountry.SelectedItem as Country)) == null)
+                    {
+                        HotelTours = null;
+                    }
+                    else
+                    {
+                        //IQueryable<int> idTour = getTour.Where(a => a.Country == (ListCountry.SelectedItem as Country))
+                        //                                .Select(a => a.Id);
+                        //foreach (var tours in idTour)
+                        //{
+                        //    HotelTours.Add(st1_Mihailova_TurEntities.getContext().Tour.FirstOrDefault(a => a.Id == tours));
+                        //}
+                    }
                     st1_Mihailova_TurEntities.getContext().Hotel.Add(new Hotel
                     {
                         Name = NameHotel.Text,
                         CountOfStars = int.Parse(CountStars.Text),
                         Description = DescriptionHotel.Text,
                         CountryCode = (ListCountry.SelectedItem as Country).Code,
-                        Tour = st1_Mihailova_TurEntities.getContext().Tour.Where(a => a.Country == (ListCountry.SelectedItem as Country)).ToList()
+                        Tour = HotelTours
                     });
                     st1_Mihailova_TurEntities.getContext().SaveChanges();
                     MessageBox.Show("Отель добавлен", "Save hotel");

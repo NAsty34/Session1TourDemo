@@ -15,15 +15,16 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="80*"/>
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="130*"/>
             <RowDefinition Height="282*"/>
         </Grid.RowDefinitions>
             <TextBlock Style="{StaticResource HeaderOrganization}"/>
             <TextBlock Text="Туры" Grid.Column="1" Style="{StaticResource HeaderWindow}"/>
+            <Button Style="{StaticResource BackButton}" Grid.Column="2" Click="Back_Click"/>
             <Image Source="Image/logo.png" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            <TextBlock x:Name="AllPrice" FontSize="15" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0"/>
+            <TextBlock x:Name="AllPrice" Style="{StaticResource StyleTextBlock}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,10"/>
      
-        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3">
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.ColumnSpan="3">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
                 <TextBlock Style="{StaticResource StyleTextBlock}" Text="Введите текст для поиска:" FontSize="20" />
                 <TextBox x:Name="Search" Width="200" Margin="20,0,0,0" FontSize="20" TextChanged="Search_TextChanged"/>

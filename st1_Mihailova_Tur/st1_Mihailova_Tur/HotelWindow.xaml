@@ -20,6 +20,7 @@
         </Grid.RowDefinitions>
             <TextBlock Style="{StaticResource HeaderOrganization}"/>
             <Image Source="Image/logo.png" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <Button Style="{StaticResource BackButton}" Grid.Column="2" Click="Back_Click"/>
             <TextBlock Text="Отели" Style="{StaticResource HeaderWindow}"/>
         <Button x:Name="CreateHotel" Click="CreateHotel_Click" Grid.Column="2" HorizontalAlignment="Right" Content="Добавить отель" Margin="0,30,20,0" Style="{StaticResource StyleButton}"/>
             <Button x:Name="RemoveHotel" IsEnabled="{Binding ElementName=ListHotel, Path=SelectedItems.Count}" Click="RemoveHotel_Click" Grid.Column="2" HorizontalAlignment="Left" Content="Удалить отель" Visibility="Visible"  Style="{StaticResource StyleButton}" Margin="20,30,0,0"/>
@@ -42,11 +43,11 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0">
             <TextBlock Style="{StaticResource StyleTextBlock}" Text="Количества элементов на странице: "/>
             <TextBox x:Name="userElementsPage" Text="10" SelectionChanged="ElementsPage_Selection"/>
         </StackPanel>
-        <StackPanel x:Name="buttonPagination" Margin="0,30,0,0" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+        <StackPanel x:Name="buttonPagination" Margin="0,15,0,0" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Button Content="&lt;&lt;" Style="{StaticResource Pagination}" Click="FirstPage_Click"/>
             <Button Content="&lt;" Style="{StaticResource Pagination}" Click="Last_Click"/>
             <TextBlock Style="{StaticResource StyleTextBlock}" x:Name="NumberPage" Text="1" FontSize="15" Margin="10,2,0,0"/>

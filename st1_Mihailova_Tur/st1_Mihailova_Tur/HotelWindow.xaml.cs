@@ -152,6 +152,10 @@ namespace st1_Mihailova_Tur
             Close();
         }
 
-       
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            new HelloWindow().Show();
+            Close();
+        }
     }
 }
